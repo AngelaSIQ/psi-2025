@@ -8,13 +8,27 @@ def index():
 
 @app.route('/contato')
 def contato():
-    return '<h1>angela.siqueira@ifrn.edu.br</h1>'
+    nome='maria'
+    email='maria@email.com'
+    return render_template('contato.html', nome=nome, email=email)
 
 @app.route('/exemplo')
 def exemplo():
     return render_template('exemplo.html')
 
+@app.route('/exemplo2')
+def exemplo2():
+    return render_template('exemplo2.html')
 
+@app.route('perfil', defaults={'nome': 'fulano'})
+@app.route('/perfil/<nome>')
+def perfil(nome):
+    return render_template('perfil.html', nome=nome)
+
+@app.route('/semestre/<int:x>')
+def semestre(x):
+    y = x + 1
+    return render_template('semestre.html', x=x, y=y)
 
 if __name__ == '__main__':
     app.run   
