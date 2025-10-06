@@ -6,12 +6,6 @@ app = Flask(__name__)
 def index():
     return 'ola mundo'
 
-@app.route('/contato')
-def contato():
-    nome='maria'
-    email='maria@email.com'
-    return render_template('contato.html', nome=nome, email=email)
-
 @app.route('/exemplo')
 def exemplo():
     return render_template('exemplo.html')
@@ -30,5 +24,11 @@ def semestre(x):
     y = x + 1
     return render_template('semestre.html', x=x, y=y)
 
+@app.route('/contato')
+def contato():
+    nome='maria'
+    email='maria@email.com'
+    return render_template('contato.html', nome=nome, email=email)
+
 if __name__ == '__main__':
-    app.run   
+    app.run()
