@@ -30,5 +30,10 @@ def contato():
     email='maria@email.com'
     return render_template('contato.html', nome=nome, email=email)
 
+@app.route('/dados')
+def dados():
+    return render_template('dados.html')
+
+
 if __name__ == '__main__':
     app.run()
