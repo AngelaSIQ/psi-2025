@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -30,9 +30,20 @@ def contato():
     email='maria@email.com'
     return render_template('contato.html', nome=nome, email=email)
 
+#aula get e post
 @app.route('/dados')
 def dados():
     return render_template('dados.html')
+
+#POST - x = request.form (dados escondidos, nao sao passados pela url)
+#GET - x = request.args (dados a mostra, passados pela url)
+@app.route('/recebedados', methods=['POST'])
+def recebedados():
+    nome = request.form['nome']
+    telefone = request.form['telefone']
+    estado = request.form['estado']
+    escolaridade = request.form['esc']
+    return f"{nome} - {telefone} - {estado} - {escolaridade}"
 
 
 if __name__ == '__main__':

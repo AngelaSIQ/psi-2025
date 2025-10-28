@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dado</title>
+    <title>dados</title>
 </head>
 <body>
-    <form>
+    <form action="{{url_for('recebedados')}}" method="post">
         <label>nome: </label>
         <input type="text" nome="nome">
+        <input type="text" nome="telefone">
         <button type="submit">enviar</button>
+
+        <select name="estado">
+            <opition value="RN"> Rio grande do norte </opition>
+            <opition value="PB"> Paraiba </opition>
+            <opition value="PE"> Pernambuco </opition>
+        </select>
+        <label> escolaridade: </label>
+        <input type="radio" name="esc" value="fund">fundamental <br>
+        <input type="radio" name="esc" value="med">ensino medio <br>
+        <input type="radio" name="esc" value="sup">ensino superior <br>
+
+        <button type="submit">enviar</button>
+        
     </form>
 </body>
 </html>
